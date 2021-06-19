@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
@@ -17,10 +19,8 @@ import com.erdemer.e_ticaret.adapter.DetailViewPagerAdapter
 import com.erdemer.e_ticaret.adapter.OnSizeItemClickListener
 import com.erdemer.e_ticaret.adapter.SizeViewAdapter
 import com.erdemer.e_ticaret.databinding.ProductDetailFragmentBinding
-import com.erdemer.e_ticaret.extension.changeColor
-import com.erdemer.e_ticaret.extension.convertHtml
-import com.erdemer.e_ticaret.extension.gone
-import com.erdemer.e_ticaret.extension.makeStrike
+import com.erdemer.e_ticaret.extension.*
+import com.erdemer.e_ticaret.model.SendDataModelToMap
 import com.erdemer.e_ticaret.model.SizeModel
 import com.erdemer.e_ticaret.util.Constants
 import com.erdemer.e_ticaret.util.SharedPreferenceManager
@@ -58,6 +58,9 @@ class ProductDetailFragment : Fragment() {
         activity?.ivBackIcon?.setOnClickListener {
             val action = ProductDetailFragmentDirections.actionProductDetailFragmentToHomeFragment()
             findNavController().navigate(action)
+            Navigation.findNavController(requireView()).popBackStack(
+                R.id.productDetailFragment, true)
+
         }
 
 
@@ -91,16 +94,17 @@ class ProductDetailFragment : Fragment() {
             } ?: run {
                 binding.tvOldPriceDetail.text = it.price + "₺"
                 binding.tvNewPriceDetail.gone()
-                binding.tvOldPriceDetail.changeColor(Constants.PRICE_COLOR_CODE)
+                binding.tvOldPriceDetail.changeTextColor(R.color.title_color)
             }
             it.productDetailInfo?.let { str -> binding.tvProductExplanation.convertHtml(str) }
             setSizeRVAdapter(it.sizeModel)
 
             binding.btnWhichShop.setOnClickListener { btn ->
                 val location = arrayOf(it.latitude, it.longitude, args.productId.toString())
+                val sendModel = SendDataModelToMap(it.latitude,it.longitude,Integer.parseInt(it.id))
                 val action =
                     ProductDetailFragmentDirections.actionProductDetailFragmentToMapFragment(
-                        location
+                        sendModel
                     )
                 findNavController().navigate(action)
             }
@@ -127,11 +131,7 @@ class ProductDetailFragment : Fragment() {
         })
     }
 
-    private fun showBottomSheetDialog() {
-        val action =
-            ProductDetailFragmentDirections.actionProductDetailFragmentToRoundedBottomSheetDialog()
-        findNavController().navigate(action)
-    }
+
 
     private fun makeNormalViewPager(images: List<String>) {
         val vpDetailAdapter = DetailViewPagerAdapter(images)

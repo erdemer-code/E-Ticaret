@@ -21,8 +21,9 @@
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/vpDetail"
-                android:layout_width="250dp"
-                android:layout_height="250dp"
+                android:layout_width="@dimen/viewpager_dims"
+                android:layout_height="@dimen/viewpager_dims"
+                android:background="@drawable/viewpage_background"
                 android:layout_marginTop="@dimen/productItemMargin"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

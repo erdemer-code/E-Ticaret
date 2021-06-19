@@ -20,6 +20,7 @@
     <color name="full_price_color">#C8D0DF</color>
     <color name="add_to_cart_disabled">#C3C3C3</color>
     <color name="bottom_dialog_button">#3F4346</color>
+    <color name="female_text">#FF66A0</color>
 
 
 </resources>

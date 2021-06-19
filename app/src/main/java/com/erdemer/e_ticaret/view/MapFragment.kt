@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentManager
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.erdemer.e_ticaret.R
@@ -46,24 +47,27 @@ class MapFragment : Fragment(),OnMapReadyCallback {
         mapFragment.getMapAsync(this)
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(activity)
         activity?.ivBackIcon?.setOnClickListener {
-            val action = MapFragmentDirections.actionMapFragmentToProductDetailFragment(Integer.parseInt(args.location[2]))
+            val action = MapFragmentDirections.actionMapFragmentToProductDetailFragment(Integer.parseInt(args.data.productId.toString()))
             findNavController().navigate(action)
+            Navigation.findNavController(requireView()).popBackStack(
+                R.id.mapFragment, true)
         }
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
-        val lat = args.location[0].toDouble()
-        val lng = args.location[1].toDouble()
+        val lat = args.data.latitude?.toDouble()
+        val lng = args.data.longitude?.toDouble()
         val zoomLevel = 15f
 
-        val latLng = LatLng(lat,lng)
+        val latLng =  LatLng(lat!!,lng!!)
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,zoomLevel))
         map.addMarker(MarkerOptions()
             .position(latLng)
             .title("Shop Location")
             .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)))
         map.uiSettings.isZoomControlsEnabled = true
+
     }
 
 

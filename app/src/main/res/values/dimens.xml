@@ -21,6 +21,7 @@
     <dimen name="map_radius">40dp</dimen>
     <dimen name="icon_size">24dp</dimen>
     <dimen name="counter_small_padding">5dp</dimen>
+    <dimen name="viewpager_dims">300dp</dimen>
 
 
 </resources>

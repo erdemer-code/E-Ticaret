@@ -10,7 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.erdemer.e_ticaret.R
 import com.erdemer.e_ticaret.enum.CategoryType
-import com.erdemer.e_ticaret.extension.changeColor
+import com.erdemer.e_ticaret.extension.changeTextColor
 import com.erdemer.e_ticaret.extension.gone
 import com.erdemer.e_ticaret.extension.makeStrike
 import com.erdemer.e_ticaret.model.Product
@@ -56,7 +56,7 @@ class ProductRecyclerAdapter(private val productList: List<Product>, var onProdu
             }?: run {
                 itemView.tvOldPrice.text = item.price + "₺"
                 itemView.tvNewPrice.gone()
-                itemView.tvOldPrice.changeColor(Constants.PRICE_COLOR_CODE)
+                itemView.tvOldPrice.changeTextColor(R.color.title_color)
             }
             item.category?.let { checkCategory(it,itemView) }
             itemView.setOnClickListener {
@@ -68,14 +68,18 @@ class ProductRecyclerAdapter(private val productList: List<Product>, var onProdu
 }
 
 fun checkCategory(data:String, itemView: View){
-    if (data == CategoryType.MALE.value){
-        itemView.tvCategoryName.setBackgroundResource(R.drawable.male_circle)
-        itemView.tvCategoryName.changeColor(Constants.MALE_COLOR_CODE)
-    } else {
-        itemView.tvCategoryName.setBackgroundResource(R.drawable.female_circle)
-        itemView.tvCategoryName.changeColor(Constants.FEMALE_COLOR_CODE)
+    when(data){
+        CategoryType.MALE.value-> {
+            itemView.tvCategoryName.setBackgroundResource(R.drawable.male_circle)
+            itemView.tvCategoryName.changeTextColor(R.color.male_blue)
+        }
+        CategoryType.FEMALE.value -> {
+            itemView.tvCategoryName.setBackgroundResource(R.drawable.female_circle)
+            itemView.tvCategoryName.changeTextColor(R.color.female_text)
+        }
     }
     itemView.tvCategoryName.text = data
+
 }
 
 interface OnProductItemClickListener{
