@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">E-Ticaret</string>
+    <string name="brand_name">Hygge</string>
+    <string name="temp_main_title">We Offer the Best\nProducts for your Skin</string>
+    <string name="temp_sub_title">Explore our Product</string>
+    <string name="full_price_text"><strike>$30</strike></string>
+    <string name="selling_fast">- Selling Fast</string>
+    <string name="productDescription">Ürün Açıklaması</string>
+    <string name="temp_product_explanation">%70 Pamuk, %30 Polyester</string>
+    <string name="temp_size_s">S</string>
+    <string name="temp_size_m">M</string>
+    <string name="temp_size_l">L</string>
+    <string name="textSearchShops">Hangi Mağazada Var?</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="goto_mainpage">Anasayfaya Git</string>
+    <string name="add_to_basket">Sepete Eklendi</string>
+
+</resources>

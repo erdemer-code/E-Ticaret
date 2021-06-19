@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- My Colors -->
+    <color name="toolbar_background">#F0FFFB</color>
+    <color name="toolbar_blue">#00CC96</color>
+    <color name="title_color">#1A202C</color>
+    <color name="background_gray">#E5E5E5</color>
+    <color name="background_light_gray">#F6F7FB</color>
+    <color name="male_blue">#2975FF</color>
+    <color name="male_background">#D3DBE8</color>
+    <color name="female_background">#FFC8DD</color>
+    <color name="full_price_color">#C8D0DF</color>
+    <color name="add_to_cart_disabled">#C3C3C3</color>
+    <color name="bottom_dialog_button">#3F4346</color>
+
+
+</resources>

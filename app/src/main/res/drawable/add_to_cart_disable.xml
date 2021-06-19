@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/add_to_cart_disabled"/>
+    <corners android:radius="@dimen/circle_radius"/>
+    <padding android:left="@dimen/circle_padding" android:right="@dimen/circle_padding"
+        android:bottom="@dimen/circle_padding" android:top="@dimen/circle_padding"/>
+</shape>

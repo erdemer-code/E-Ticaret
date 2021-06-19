@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.erdemer.e_ticaret.viewmodel.ProductDetailViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/add_to_cart_margin">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vpDetail"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_marginTop="@dimen/productItemMargin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvSellingFast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/productItemMargin"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/selling_fast"
+                android:textAlignment="center"
+                android:textColor="@color/male_blue"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vpDetail" />
+
+            <TextView
+                android:id="@+id/tvProductDetailTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/productItemMargin"
+                android:fontFamily="@font/montserrat_bold"
+                android:textAlignment="center"
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/title_text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvSellingFast"
+                tools:text="Beymen Collection" />
+
+            <LinearLayout
+                android:id="@+id/llPriceBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/productItemMargin"
+                android:orientation="horizontal"
+                android:weightSum="5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvProductDetailTitle">
+
+                <TextView
+                    android:id="@+id/tvOldPriceDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:textColor="@color/full_price_color"
+                    android:textSize="@dimen/price_text_size"
+                    tools:text="@string/full_price_text" />
+
+                <TextView
+                    android:id="@+id/tvNewPriceDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_two_price"
+                    android:layout_weight="3"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:textColor="@color/title_color"
+                    android:textSize="@dimen/price_text_size"
+                    tools:text="$20" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvProductDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/productItemMargin"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="@string/productDescription"
+                android:textAlignment="center"
+                android:textColor="@color/full_price_color"
+                android:textSize="@dimen/price_text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/llPriceBox" />
+
+            <TextView
+                android:id="@+id/tvProductExplanation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/productItemMargin"
+                android:fontFamily="@font/montserrat"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/price_text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvProductDescription"
+                tools:text="@string/temp_product_explanation" />
+
+            <LinearLayout
+                android:id="@+id/llCountBox"
+                android:layout_width="@dimen/counter_box_width"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/product_item_img_padding"
+                android:background="@drawable/counter_bg"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvProductExplanation">
+
+                <ImageView
+                    android:id="@+id/btnDecrement"
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:layout_marginTop="@dimen/stroke_width"
+                    android:layout_marginEnd="@dimen/product_item_general_padding"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_back" />
+
+                <TextView
+                    android:id="@+id/tvOutput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="1"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/title_text_size"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/btnIncrement"
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:layout_marginStart="@dimen/product_item_general_padding"
+                    android:layout_marginTop="@dimen/stroke_width"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_next" />
+
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSizeBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/productItemMargin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/llCountBox" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnWhichShop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/productItemMargin"
+                android:background="@drawable/size_button_normal"
+                android:text="@string/textSearchShops"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rvSizeBox" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_add_to_cart"
+                android:layout_width="@dimen/add_to_cart_btn_width"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/add_to_cart_margin"
+                android:background="@drawable/add_to_cart_selector"
+                android:enabled="@{viewModel.buttonEnable}"
+                android:text="@string/add_to_cart"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnWhichShop" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+</layout>

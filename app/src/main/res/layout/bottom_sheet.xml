@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/ivChecked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_checked"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/add_to_cart_margin"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvConfirmedText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/add_to_cart_margin"
+        android:fontFamily="@font/montserrat_bold"
+        android:textColor="@color/black"
+        android:textSize="@dimen/title_text_size"
+        app:layout_constraintTop_toBottomOf="@id/ivChecked"
+        android:text="@string/add_to_basket"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="@dimen/add_to_cart_btn_width"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvConfirmedText"
+        android:layout_marginTop="@dimen/add_to_cart_margin"
+        android:text="@string/goto_mainpage"
+        android:textColor="@color/white"
+        android:background="@drawable/size_button_normal"
+        android:backgroundTint="@color/bottom_dialog_button"
+        android:textAllCaps="false"
+        android:id="@+id/btnBackToMainPage"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

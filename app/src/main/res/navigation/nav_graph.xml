@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.erdemer.e_ticaret.view.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.erdemer.e_ticaret.view.ProductDetailFragment"
+        android:label="ProductDetailFragment" >
+        <action
+            android:id="@+id/action_productDetailFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
+        <action
+            android:id="@+id/action_productDetailFragment_to_roundedBottomSheetDialog"
+            app:destination="@id/roundedBottomSheetDialog" />
+        <action
+            android:id="@+id/action_productDetailFragment_to_homeFragment"
+            app:destination="@id/homeFragment" >
+            <argument
+                android:name="productId"
+                android:defaultValue="5" />
+        </action>
+        <argument
+            android:name="productId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.erdemer.e_ticaret.view.MapFragment"
+        android:label="map_fragment"
+        tools:layout="@layout/map_fragment" >
+        <argument android:name="location"
+            app:argType="string[]" />
+        <action
+            android:id="@+id/action_mapFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/roundedBottomSheetDialog"
+        android:name="com.erdemer.e_ticaret.view.RoundedBottomSheetDialog"
+        android:label="RoundedBottomSheetDialog" >
+        <action
+            android:id="@+id/action_roundedBottomSheetDialog_to_homeFragment2"
+            app:destination="@id/homeFragment" >
+            <argument
+                android:name="productId"
+                android:defaultValue="1" />
+        </action>
+    </dialog>
+</navigation>

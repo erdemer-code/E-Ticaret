@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/product_item_general_padding"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/ivProductImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/product_item_img_padding"
+        android:layout_marginTop="@dimen/productItemMargin"
+        android:background="@drawable/viewpage_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/p_image_sample" />
+
+    <TextView
+        android:id="@+id/tvProductName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/productItemMargin"
+        tools:text="Sun Cream"
+        android:textSize="@dimen/title_text_size"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textAlignment="center"
+        android:fontFamily="@font/montserrat_bold"
+        android:textColor="@color/title_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivProductImage" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvCategoryName"
+        tools:text="Male"
+        android:layout_marginTop="@dimen/productItemMargin"
+        app:layout_constraintTop_toBottomOf="@id/tvProductName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/male_circle"
+        android:textColor="@color/male_blue"
+        android:textSize="@dimen/category_text_size"/>
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginTop="@dimen/productItemMargin"
+    app:layout_constraintTop_toBottomOf="@id/tvCategoryName"
+    android:orientation="horizontal"
+    android:weightSum="5">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvOldPrice"
+        android:fontFamily="@font/montserrat_bold"
+        android:textColor="@color/full_price_color"
+        android:textSize="@dimen/price_text_size"
+        tools:text="@string/full_price_text"
+        android:layout_weight="2"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvNewPrice"
+        android:layout_marginStart="@dimen/margin_two_price"
+        android:fontFamily="@font/montserrat_bold"
+        android:textColor="@color/title_color"
+        android:textSize="@dimen/price_text_size"
+        tools:text="$20"
+        android:layout_weight="3"/>
+
+</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
